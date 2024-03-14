@@ -16,7 +16,7 @@ static const GpioPin* gpios[] = {
     &gpio_ext_pa6,
     &gpio_ext_pa7};
 
-// static const char* gpio_names[] = {"PC0", "PC1", "PC3", "PB2", "PB3", "PA4", "PA6", "PA7"};
+//static const char* gpio_names[] = {"PC0", "PC1", "PC3", "PB2", "PB3", "PA4", "PA6", "PA7"};
 
 static void render_callback(Canvas* const canvas, void* cb_ctx) {
     AppFSM* app = cb_ctx;
@@ -42,7 +42,7 @@ static void render_callback(Canvas* const canvas, void* cb_ctx) {
         UsbUartState st;
         usb_uart_get_state(app->uart, &st);
 
-        snprintf(buffer, sizeof(buffer), "Rx %ld / Tx %ld", st.rx_cnt, st.tx_cnt);
+        snprintf(buffer, sizeof(buffer), "Rx %ld | Tx %ld", st.rx_cnt, st.tx_cnt);
         canvas_draw_str_aligned(canvas, 5, y, AlignLeft, AlignBottom, buffer);
         y += 20;
     }
@@ -300,7 +300,7 @@ int32_t logic_analyzer_app_main(void* p) {
     AppFSM* app = malloc(sizeof(AppFSM));
     app_init(app);
 
-    DOLPHIN_DEED(DolphinDeedPluginGameStart);
+    dolphin_deed(DolphinDeedPluginGameStart);
     notification_message_block(app->notification, &sequence_display_backlight_enforce_on);
 
     while(app->processing) {
