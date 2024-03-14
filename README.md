@@ -1,16 +1,11 @@
-# flipper-logic_analyzer
-I was missing a simple way of using Flipper as logic analyzer with e.g. PulseView, so I created a (prototype) plugin.
-
-Just start the Flipper application and you will see smth like that for now:
-
-[Video](http://cdn.discordapp.com/attachments/1074401633615749230/1074405882923864174/pulseview_2023-02-12_20-03-11.mp4 "Video")
-
-Then start PulseView and add a new "Openbench Logic Sniffer (ols)"
-and select the second flipper serial port.
-
-When arming, you can now look at the trace in PulseView.
-
-Current state:
+# flipper-logic-analyzer
+Source: https://github.com/g3gg0/flipper-logic_analyzer
+I'm in the process of bringing this in line with the latest flipper firmwares. Right now it loads on my flipper, next I need to test its functionality for bugs. Here are the steps I used to upload:
+1. Install [ufbt](https://github.com/flipperdevices/flipperzero-ufbt) (`pip install --upgrade ufbt`)
+2. Clone this repo: `git clone https://github.com/ecopsychologer/flipper-logic-analyzer`
+3. Change directories into the repo: `cd flipper-logic-analyzer`
+4. Run the app! `ufbt launch APPID=fz_logic_analyzer`
+#### from the original developer:
  - all 8 channels supported Channel 0 is C0, Channel 1 is C1, ... Channel 7 is A7
  - fixed sampling rate not supported (yet?)
  - if a trigger level is defined, no matter which one, the signals are captured as soon this signal changes
