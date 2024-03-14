@@ -1,7 +1,6 @@
 
 
 #include "logic_analyzer_app.h"
-#include "logic_analyzer_icons.h"
 
 #define COUNT(x) ((size_t)(sizeof(x) / sizeof((x)[0])))
 

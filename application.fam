@@ -1,13 +1,17 @@
+# For details & more options, see documentation/AppManifests.md in firmware repo
+
 App(
-    appid="logic_analyzer",
-    name="Logic Analyzer",
-    apptype=FlipperAppType.PLUGIN,
-    entry_point="logic_analyzer_app_main",
-    cdefines=["APP_LOGIC_ANALYZER"],
-    requires=["gui", "storage", "dialogs"],
+    appid="template",  # Must be unique
+    name="App template",  # Displayed in menus
+    apptype=FlipperAppType.EXTERNAL,
+    entry_point="template_app",
     stack_size=2 * 1024,
-    order=10,
-    fap_icon="icons/app.png",
-    fap_category="Tools",
-    fap_icon_assets="icons"
+    fap_category="Examples",
+    # Optional values
+    # fap_version="0.1",
+    fap_icon="template.png",  # 10x10 1-bit PNG
+    # fap_description="A simple app",
+    # fap_author="J. Doe",
+    # fap_weburl="https://github.com/user/template",
+    fap_icon_assets="images",  # Image assets to compile for this application
 )
