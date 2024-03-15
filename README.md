@@ -6,7 +6,7 @@ I'm in the process of bringing this in line with the latest flipper firmwares. R
 3. Clone this repo: `git clone https://github.com/ecopsychologer/flipper-logic-analyzer`
 4. Change directories into the repo: `cd flipper-logic-analyzer`
 5. Run the app `ufbt launch APPID=fz_logic_analyzer`
-6. Launch PulseView and connect to channels
+6. Launch PulseView and connect to channels C0, C1, C3, B2, B3, A4, A6, A7
 #### from the original developer:
  - all 8 channels supported Channel 0 is C0, Channel 1 is C1, ... Channel 7 is A7
  - fixed sampling rate not supported (yet?)
