@@ -2,9 +2,11 @@
 Source: https://github.com/g3gg0/flipper-logic_analyzer
 I'm in the process of bringing this in line with the latest flipper firmwares. Right now it loads on my flipper, next I need to test its functionality for bugs. Here are the steps I used to upload:
 1. Install [ufbt](https://github.com/flipperdevices/flipperzero-ufbt) (`pip install --upgrade ufbt`)
-2. Clone this repo: `git clone https://github.com/ecopsychologer/flipper-logic-analyzer`
-3. Change directories into the repo: `cd flipper-logic-analyzer`
-4. Run the app! `ufbt launch APPID=fz_logic_analyzer`
+2. Install [PulseView](https://www.sigrok.org/wiki/Downloads)
+3. Clone this repo: `git clone https://github.com/ecopsychologer/flipper-logic-analyzer`
+4. Change directories into the repo: `cd flipper-logic-analyzer`
+5. Run the app `ufbt launch APPID=fz_logic_analyzer`
+6. Launch PulseView and connect to channels
 #### from the original developer:
  - all 8 channels supported Channel 0 is C0, Channel 1 is C1, ... Channel 7 is A7
  - fixed sampling rate not supported (yet?)
