@@ -7,7 +7,12 @@ I'm in the process of bringing this in line with the latest flipper firmwares. R
 4. Change directories into the repo: `cd flipper-logic-analyzer`
 5. Run the app `ufbt launch APPID=fz_logic_analyzer`
 6. Launch PulseView and connect to channels C0, C1, C3, B2, B3, A4, A6, A7
-#### from the original developer:
+#### continued instructions from the original developer:
+Then start PulseView and add a new "Openbench Logic Sniffer (ols)" and select the second flipper serial port.
+
+When arming, you can now look at the trace in PulseView.
+
+Changes:
  - all 8 channels supported Channel 0 is C0, Channel 1 is C1, ... Channel 7 is A7
  - fixed sampling rate not supported (yet?)
  - if a trigger level is defined, no matter which one, the signals are captured as soon this signal changes
