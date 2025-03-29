@@ -11,9 +11,9 @@ void sump_handle_get_metadata(Sump* sump) {
     uint8_t buf[128];
     size_t pos = 0;
 
-    const char* name = "Flipper LogicAnalyzer v1.0 (g3gg0.de)";
+    const char* name = "Flipper LogicAnalyzer v1.0 (originally by g3gg0.de)";
     const char* fpga = "(none)";
-    const char* firmware = "v1.0";
+    const char* firmware = "v0.99.1";
     const uint8_t probes = 8;
     uint32_t max_sample_rate = 10000000;
     uint32_t max_sample_mem = MAX_SAMPLE_MEM;

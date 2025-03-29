@@ -1,7 +1,6 @@
 
 
 #include "logic_analyzer_app.h"
-#include "logic_analyzer_icons.h"
 
 #define COUNT(x) ((size_t)(sizeof(x) / sizeof((x)[0])))
 
@@ -17,7 +16,7 @@ static const GpioPin* gpios[] = {
     &gpio_ext_pa6,
     &gpio_ext_pa7};
 
-// static const char* gpio_names[] = {"PC0", "PC1", "PC3", "PB2", "PB3", "PA4", "PA6", "PA7"};
+//static const char* gpio_names[] = {"PC0", "PC1", "PC3", "PB2", "PB3", "PA4", "PA6", "PA7"};
 
 static void render_callback(Canvas* const canvas, void* cb_ctx) {
     AppFSM* app = cb_ctx;
@@ -43,7 +42,7 @@ static void render_callback(Canvas* const canvas, void* cb_ctx) {
         UsbUartState st;
         usb_uart_get_state(app->uart, &st);
 
-        snprintf(buffer, sizeof(buffer), "Rx %ld / Tx %ld", st.rx_cnt, st.tx_cnt);
+        snprintf(buffer, sizeof(buffer), "Rx %ld | Tx %ld", st.rx_cnt, st.tx_cnt);
         canvas_draw_str_aligned(canvas, 5, y, AlignLeft, AlignBottom, buffer);
         y += 20;
     }
@@ -83,13 +82,13 @@ static void render_callback(Canvas* const canvas, void* cb_ctx) {
     furi_mutex_release(app->mutex);
 }
 
-static void input_callback(InputEvent* input_event, FuriMessageQueue* event_queue) {
-    furi_assert(event_queue);
+static void input_callback(InputEvent* input_event, void* event_queue) {
+    furi_assert((FuriMessageQueue*)event_queue);
 
     /* better skip than sorry */
-    if(furi_message_queue_get_count(event_queue) < QUEUE_SIZE) {
+    if(furi_message_queue_get_count((FuriMessageQueue*)event_queue) < QUEUE_SIZE) {
         AppEvent event = {.type = EventKeyPress, .input = *input_event};
-        furi_message_queue_put(event_queue, &event, 100);
+        furi_message_queue_put((FuriMessageQueue*)event_queue, &event, 100);
     }
 }
 
@@ -301,7 +300,7 @@ int32_t logic_analyzer_app_main(void* p) {
     AppFSM* app = malloc(sizeof(AppFSM));
     app_init(app);
 
-    DOLPHIN_DEED(DolphinDeedPluginGameStart);
+    dolphin_deed(DolphinDeedPluginGameStart);
     notification_message_block(app->notification, &sequence_display_backlight_enforce_on);
 
     while(app->processing) {

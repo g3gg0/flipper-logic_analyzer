@@ -1,13 +1,17 @@
+# For details & more options, see documentation/AppManifests.md in firmware repo
+
 App(
-    appid="logic_analyzer",
-    name="Logic Analyzer",
-    apptype=FlipperAppType.PLUGIN,
+    appid="logic_analyzer",  # Must be unique
+    name="GPIO Logic Analyzer",  # Displayed in menus
+    apptype=FlipperAppType.EXTERNAL,
     entry_point="logic_analyzer_app_main",
-    cdefines=["APP_LOGIC_ANALYZER"],
-    requires=["gui", "storage", "dialogs"],
     stack_size=2 * 1024,
-    order=10,
-    fap_icon="icons/app.png",
-    fap_category="Tools",
-    fap_icon_assets="icons"
+    fap_category="GPIO",
+    # Optional values
+    # fap_version="1.1",
+    fap_icon="icons/app.png",  # 10x10 1-bit PNG
+    # fap_description="A simple app",
+    # fap_author="g3gg0 (originally)",
+    # fap_weburl="https://github.com/ecopsychologer/flipper-logic-analyzer",
+    fap_icon_assets="icons",  # Image assets to compile for this application
 )
