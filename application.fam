@@ -1,7 +1,7 @@
 # For details & more options, see documentation/AppManifests.md in firmware repo
 
 App(
-    appid="fz_logic_analyzer",  # Must be unique
+    appid="logic_analyzer",  # Must be unique
     name="GPIO Logic Analyzer",  # Displayed in menus
     apptype=FlipperAppType.EXTERNAL,
     entry_point="logic_analyzer_app_main",
